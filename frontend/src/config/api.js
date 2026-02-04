@@ -1,0 +1,1 @@
+export const API_CATEGORY = "http://localhost:3001/api/category"
