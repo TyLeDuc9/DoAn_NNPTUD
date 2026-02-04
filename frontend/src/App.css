@@ -1,0 +1,31 @@
+
+.ant-pagination-item {
+  width: 40px;        
+  height: 80px;        
+  display: flex;        
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;     
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  border:1px solid #166534 !important;
+}
+
+.ant-pagination-item:hover {
+  background-color: #166534;
+  border-color: #166534;
+}
+
+.ant-pagination-item:hover a {
+  color: white !important;
+  background-color:#166534 !important;
+}
+
+.ant-pagination-item-active {
+  background-color: #166534 !important; 
+}
+
+.ant-pagination-item-active a {
+  color: white !important;
+  font-weight: bold;   
+}
