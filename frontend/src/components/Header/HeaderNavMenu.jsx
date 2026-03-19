@@ -8,26 +8,26 @@ import {
 } from "react-icons/fa";
 import { useNavigate, Link } from "react-router-dom";
 import { GenreCategory } from "../Genre/GenreCategory";
-// import { useDispatch, useSelector } from "react-redux";
-// import { logout } from "../../redux/Auth/authSlice";
-// import { clearCartOnLogout } from "../../redux/Cart/cartSlice";
-// import { clearAddresses } from "../../redux/ShippingAddress/shippingAddressSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../redux/Auth/authSlice";
+import { clearCartOnLogout } from "../../redux/Cart/cartSlice";
+import { clearAddresses } from "../../redux/ShippingAddress/shippingAddressSlice";
 
 export const HeaderNavMenu = ({ mobile = false }) => {
-  // const dispatch = useDispatch();
-  // const navigate = useNavigate();
-  // const currentUser = useSelector((state) => state.auth.login.currentUser);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const currentUser = useSelector((state) => state.auth.login.currentUser);
 
   const [openDropdown, setOpenDropdown] = useState(false);
 
-  // const handleLogout = () => {
-  //   dispatch(logout());
-  //   dispatch(clearCartOnLogout());
-  //   dispatch(clearAddresses());
-  //   localStorage.removeItem("token");
-  //   localStorage.removeItem("user");
-  //   navigate("/");
-  // };
+  const handleLogout = () => {
+    dispatch(logout());
+    dispatch(clearCartOnLogout());
+    dispatch(clearAddresses());
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    navigate("/");
+  };
 
   const navItems = [
     { name: "Giới thiệu", path: "/gioi-thieu" },
@@ -84,7 +84,7 @@ export const HeaderNavMenu = ({ mobile = false }) => {
       ))}
 
       {/* LOGIN / LOGOUT */}
-      {/* {!currentUser ? ( */}
+      {!currentUser ? (
         <>
           <li className="lg:text-base text-sm font-semibold">
             <Link
@@ -104,8 +104,8 @@ export const HeaderNavMenu = ({ mobile = false }) => {
             </Link>
           </li>
         </>
-      {/* ) : ( */}
-        {/* <>
+      ) : (
+        <>
           <li className="lg:text-base text-sm font-semibold">
             <Link
               to="/tai-khoan"
@@ -121,8 +121,8 @@ export const HeaderNavMenu = ({ mobile = false }) => {
           >
             Đăng xuất <FaSignOutAlt />
           </li>
-        </> */}
-      {/* )} */}
+        </>
+      )}
     </ul>
   );
 };

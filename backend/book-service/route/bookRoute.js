@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const uploadBookImage = require('../middlewares/uploadBook');
+const uploadBookImage = require('../middleware/uploadBook');
 const { verifyToken, verifyRole } = require('../middleware/authMiddleware');
 const bookController = require('../controller/bookController');
 router.get("/", bookController.getBooks);
