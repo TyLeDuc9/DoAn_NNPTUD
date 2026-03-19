@@ -3,7 +3,6 @@ import { getAuthHeader } from "../utils/authHeader";
 import { API_BANNER } from "../config/api";
 
 
-// 🟢 Lấy toàn bộ banner
 export const getBanners = async () => {
   try {
     const res = await axios.get(API_BANNER);
@@ -13,7 +12,6 @@ export const getBanners = async () => {
   }
 };
 
-// 🟢 Lấy banner theo ID
 export const getBannerById = async (id) => {
   try {
     const res = await axios.get(`${API_BANNER}/${id}`, {
