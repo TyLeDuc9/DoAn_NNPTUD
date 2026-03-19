@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-// import { HeaderIcons } from './HeaderIcons';
+import { HeaderIcons } from './HeaderIcons';
 import { HeaderNavMenu } from './HeaderNavMenu';
 import { HeaderLogo } from './HeaderLogo';
-// import { HeaderSearch } from './HeaderSearch';
+import { HeaderSearch } from './HeaderSearch';
 import { FaBars, FaTimes } from "react-icons/fa";
 
 export const Header = () => {
@@ -13,14 +13,14 @@ export const Header = () => {
       <section className="w-[85%] mx-auto text-white flex justify-between items-center lg:gap-4 gap-2 lg:py-8 py-6">
         <HeaderLogo />
         <div className="flex-1 lg:max-w-[600px] sm:max-w-[800px]">
-          {/* <HeaderSearch /> */}
+          <HeaderSearch />
         </div>
 
         <div className="hidden lg:block">
           <HeaderNavMenu />
         </div>
 
-        {/* <HeaderIcons /> */}
+        <HeaderIcons />
 
         <button
           onClick={() => setMenuOpen(true)}
@@ -56,7 +56,7 @@ export const Header = () => {
         </button>
         {/* Nav menu mobile */}
         <nav className="pace-y-4 mt-8">
-          {/* <HeaderNavMenu mobile /> */}
+          <HeaderNavMenu mobile />
         </nav>
       </div>
     </header>

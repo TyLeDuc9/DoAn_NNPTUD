@@ -1,7 +1,9 @@
+const mongoose = require('mongoose');
+const Category = mongoose.model('Category', require('../../category-service/model/Category').schema);
+const Author = mongoose.model('Author', require('../../author-service/model/Author').schema);
+const Publisher = mongoose.model('Publisher', require('../../publisher-service/model/Publisher').schema);
+const BookDiscount = mongoose.model('BookDiscount', require('../../bookDiscount-service/model/BookDiscount').schema);
 const Book = require('../model/Book');
-const Category = require('../model/Category');
-const Publisher= require('../model/Publisher');
-const Author= require('../model/Author');
 const slugify = require('slugify');
 exports.updateBook = async (req, res) => {
   try {
