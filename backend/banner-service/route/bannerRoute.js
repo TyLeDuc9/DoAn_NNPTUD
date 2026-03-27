@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const { verifyToken, verifyRole } = require('../middleware/authMiddleware');
+const bannerController = require('../controller/bannerController');
+const uploadBanner = require('../middleware/uploadBanner');
+router.get('/', bannerController.getAllBanner);
+router.get('/:id', bannerController.getBannerById);
+router.post('/',verifyToken,verifyRole(['admin']),uploadBanner.single('imageUrl'),bannerController.createBanner);
+router.put('/:id', verifyToken, verifyRole(['admin']),   uploadBanner.single('imageUrl'),  bannerController.updateBanner);
+router.delete('/:id', verifyToken, verifyRole(['admin', 'employee']), bannerController.deleteBanner);
+module.exports = router;
