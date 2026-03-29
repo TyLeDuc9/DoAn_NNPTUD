@@ -37,11 +37,9 @@ const bookSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 // Middleware tự động tạo slug từ name
-bookSchema.pre('save', function (next) {
+bookSchema.pre('save', async function () {
     if (this.isModified('name')) {
         this.slug = slugify(this.name, { lower: true, strict: true });
     }
-    next();
 });
-
 module.exports = mongoose.model('Book', bookSchema);

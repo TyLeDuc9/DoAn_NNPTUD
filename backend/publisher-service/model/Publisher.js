@@ -32,11 +32,9 @@ const publisherSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 // Tạo slug tự động từ name trước khi lưu
-publisherSchema.pre('save', function (next) {
+publisherSchema.pre('save', async function () {
     if (this.isModified('name')) {
         this.slug = slugify(this.name, { lower: true, strict: true });
     }
-    next();
 });
-
 module.exports = mongoose.model('Publisher', publisherSchema);
